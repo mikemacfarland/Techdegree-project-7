@@ -1,3 +1,100 @@
-/*# sourceMappingURL=styles.css.map */
+.grid-container {
+  display: grid;
+  grid-template-areas: "header" "nav" "main";
+}
+
+header {
+  background-color: #6756a7;
+  display: flex;
+  flex-direction: row;
+  grid-area: header;
+  justify-content: flex-end;
+}
+
+h1 {
+  margin-right: auto;
+}
+
+.notifications {
+  fill: black;
+  stroke-width: 2;
+  stroke: black;
+}
+
+nav {
+  background-color: #462e6d;
+  display: flex;
+  flex-direction: row;
+  grid-area: nav;
+  justify-content: space-evenly;
+}
+
+main {
+  display: grid;
+  grid-area: main;
+  grid-template-columns: 50%;
+  grid-template-areas: "stonks stonks" "traffic users" "social social" "stats stats" "new-members new-members" "activity activity" "message-form message-form" "settings settings";
+}
+
+.stonks {
+  grid-area: stonks;
+}
+
+.traffic {
+  grid-area: traffic;
+}
+
+.users {
+  grid-area: users;
+}
+
+.social {
+  grid-area: social;
+}
+
+.stats {
+  grid-area: stats;
+}
+
+.new-members {
+  grid-area: new-members;
+}
+
+.activity {
+  grid-area: activity;
+}
+
+.form {
+  grid-area: message-form;
+}
+
+.settings {
+  grid-area: settings;
+}
+
+body {
+  font-family: "Abel", sans-serif;
+}
+
+h1 {
+  font-family: "Lobster", cursive;
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: 10% 90%;
+    grid-template-areas: "header header" "nav main";
+  }
+
+  nav {
+    flex-direction: column;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: 50%;
+    grid-template-areas: "stonks stonks" "traffic users" "social social" "stats stats" "new-members activity" "message-form settings";
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

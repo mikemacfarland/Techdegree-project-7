@@ -1,3 +1,58 @@
+.grid-container {
+  display: grid;
+  grid-template-areas: "header" "nav" "main";
+}
+
+header {
+  background-color: #6756a7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  grid-area: header;
+}
+
+nav {
+  background-color: #462e6d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  grid-area: nav;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  grid-area: main;
+}
+
+.notifications {
+  width: 30%;
+  fill: #000;
+  stroke-width: 2;
+  stroke: #000;
+}
+
+body {
+  font-family: "Abel", sans-serif;
+}
+
+h1 {
+  font-family: "Lobster", cursive;
+}
+
 /*# sourceMappingURL=styles.min.css.map */
 
 /*# sourceMappingURL=styles.min.css.map */

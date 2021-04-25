@@ -1,0 +1,78 @@
+.grid-container{
+    display: grid;
+    grid-template-areas: "header"
+                         "nav"
+                         "main";
+}
+
+header{
+    background-color: rgb(103, 86, 167);
+    display: flex;
+    flex-direction: row;
+    grid-area: header;
+    justify-content: flex-end;
+}
+
+h1{
+    margin-right: auto;
+}
+
+.notifications{
+    fill: black;
+    stroke-width: 2;
+    stroke: black;
+}
+
+nav{
+    background-color: rgb(70, 46, 109);
+    display: flex;
+    flex-direction: row;
+    grid-area: nav;
+    justify-content: space-evenly;
+}
+
+main{
+    display: grid;
+    grid-area: main;
+    grid-template-columns: 50%;
+    grid-template-areas:"stonks stonks"
+                        "traffic users"
+                        "social social"
+                        "stats stats"
+                        "new-members new-members"
+                        "activity activity"
+                        "message-form message-form"
+                        "settings settings";
+}
+
+// -------------------------------
+// grid areas for widgets
+// -------------------------------
+
+.stonks{
+    grid-area: stonks;
+}
+.traffic{
+    grid-area: traffic;
+}
+.users{
+    grid-area: users;
+}
+.social{
+    grid-area: social;
+}
+.stats{
+    grid-area: stats;
+}
+.new-members{
+    grid-area: new-members;
+}
+.activity{
+    grid-area: activity;
+}
+.form{
+    grid-area: message-form;
+}
+.settings{
+    grid-area: settings;
+}

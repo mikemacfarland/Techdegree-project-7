@@ -1,0 +1,25 @@
+@media (min-width: 768px) {
+
+    .grid-container{
+        grid-template-columns: 10% 90%;
+        grid-template-areas: "header header"
+                             "nav main";
+    }
+
+    nav{
+        flex-direction: column;
+    }    
+}
+
+@media (min-width: 1024px) {
+
+    main{
+        grid-template-columns: 50%;
+        grid-template-areas: "stonks stonks"
+                             "traffic users"
+                             "social social"
+                             "stats stats"
+                             "new-members activity"
+                             "message-form settings";
+    }
+}
