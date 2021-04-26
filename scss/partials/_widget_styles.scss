@@ -1,0 +1,62 @@
+.widget{
+    display: flex;
+    flex-direction: column;
+}
+
+
+// -------------------------------
+// traffic widget
+// -------------------------------
+
+.traffic-nav{
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+// -------------------------------
+// daily traffic widget
+// -------------------------------
+
+// -------------------------------
+// message user widget
+// -------------------------------
+
+// -------------------------------
+// grid areas for widgets
+// -------------------------------
+
+
+.main-header{
+    grid-area: main-header;
+}
+.alert{
+    grid-area: alert;
+}
+.traffic{
+    grid-area: traffic;
+}
+.daily-traffic{
+    grid-area: daily-traffic;
+}
+.mobile-users{
+    grid-area: mobile-users;
+}
+.social-stats{
+    grid-area: social-stats;
+}
+.new-members{
+    grid-area: new-members;
+}
+.recent-activity{
+    grid-area: recent-activity;
+}
+.message-user{
+    grid-area: message-user;
+}
+.settings{
+    grid-area: settings;
+}

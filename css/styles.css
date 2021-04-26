@@ -1,4 +1,5 @@
 .grid-container {
+  margin: 0;
   display: grid;
   grid-template-areas: "header" "nav" "main";
 }
@@ -12,13 +13,27 @@ header {
 }
 
 h1 {
-  margin-right: auto;
+  margin: auto auto auto 5%;
+}
+
+.student-name {
+  display: flex;
+  flex-direction: row;
+  margin: auto 5% auto 2%;
+}
+
+.student-name img {
+  border: #462e6d 2px solid;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin: auto 5%;
 }
 
 .notifications {
-  fill: black;
-  stroke-width: 2;
-  stroke: black;
+  width: 30px;
+  height: 30px;
+  margin: auto 2% 2% auto;
 }
 
 nav {
@@ -29,55 +44,56 @@ nav {
   justify-content: space-evenly;
 }
 
+nav svg {
+  height: 45px;
+  width: 45px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-header h2 {
+  text-align: center;
+  width: 30%;
+  margin: auto 2%;
+}
+
+.main-header-search {
+  width: 70%;
+}
+.main-header-search input {
+  width: 100%;
+  height: 100%;
+}
+
 main {
   display: grid;
   grid-area: main;
-  grid-template-columns: 50%;
-  grid-template-areas: "stonks stonks" "traffic users" "social social" "stats stats" "new-members new-members" "activity activity" "message-form message-form" "settings settings";
-}
-
-.stonks {
-  grid-area: stonks;
-}
-
-.traffic {
-  grid-area: traffic;
-}
-
-.users {
-  grid-area: users;
-}
-
-.social {
-  grid-area: social;
-}
-
-.stats {
-  grid-area: stats;
-}
-
-.new-members {
-  grid-area: new-members;
-}
-
-.activity {
-  grid-area: activity;
-}
-
-.form {
-  grid-area: message-form;
-}
-
-.settings {
-  grid-area: settings;
+  grid-template-columns: 100%;
+  grid-template-areas: "main-header" "alert" "traffic" "daily-traffic" "mobile-users" "social-stats" "new-members" "recent-activity" "message-user" "settings";
 }
 
 body {
   font-family: "Abel", sans-serif;
 }
 
+header * {
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
 h1 {
   font-family: "Lobster", cursive;
+}
+
+h3 {
+  font-weight: 100;
+  font-size: 1.2rem;
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
@@ -93,8 +109,61 @@ h1 {
 @media (min-width: 1024px) {
   main {
     grid-template-columns: 50%;
-    grid-template-areas: "stonks stonks" "traffic users" "social social" "stats stats" "new-members activity" "message-form settings";
+    grid-template-areas: "main-header main-header" "alert alert" "traffic traffic" "traffic users" "social social" "stats stats" "new-members activity" "message-form settings";
   }
+}
+.widget {
+  display: flex;
+  flex-direction: column;
+}
+
+.traffic-nav {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.main-header {
+  grid-area: main-header;
+}
+
+.alert {
+  grid-area: alert;
+}
+
+.traffic {
+  grid-area: traffic;
+}
+
+.daily-traffic {
+  grid-area: daily-traffic;
+}
+
+.mobile-users {
+  grid-area: mobile-users;
+}
+
+.social-stats {
+  grid-area: social-stats;
+}
+
+.new-members {
+  grid-area: new-members;
+}
+
+.recent-activity {
+  grid-area: recent-activity;
+}
+
+.message-user {
+  grid-area: message-user;
+}
+
+.settings {
+  grid-area: settings;
 }
 
 /*# sourceMappingURL=styles.css.map */
