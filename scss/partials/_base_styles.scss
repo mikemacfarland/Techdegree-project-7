@@ -1,4 +1,5 @@
 .grid-container{
+    width: 100%;
     margin: 0;
     display: grid;
     grid-template-areas: "header"
@@ -15,17 +16,20 @@ header{
     display: flex;
     flex-direction: row;
     grid-area: header;
-    justify-content: flex-end;
+    justify-content:space-between;
+    
 }
 
 h1{
-    margin: auto auto auto 5%;
+    flex-grow: 2;
+    margin: auto 5%;
 }
 
 .student-name{
     display: flex;
     flex-direction: row;
-    margin: auto 5% auto 2%;
+    justify-content: space-evenly;
+    margin: auto 2%;
 }
 
 .student-name img{
@@ -33,13 +37,13 @@ h1{
     border-radius: 50%;
     width: 45px;
     height: 45px;
-    margin: auto 5%;
+    margin: auto 0;
 }
 
 .notifications{
-    width: 30px;
-    height: 30px;
-    margin: auto 2% 2% auto;
+    width: 28px;
+    height: 28px;
+    margin: auto 0;
 }
 
 // -------------------------------
@@ -55,14 +59,30 @@ nav{
 }
 
 nav svg{
-    height: 45px;
-    width: 45px;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    height: 38px;
+    width: 38px;
+    margin: 10px auto;
+    fill: white;
 }
+
+// -------------------------------
+// dashboard elements
+// -------------------------------
+
+#dashboard-search{
+    background-color: rgb(233, 233, 233);
+    border: grey 1px solid;
+    border-top: none;
+    border-radius: 0 0 0 5px;
+    height: 50px;
+
+}
+
 // -------------------------------
 // main elements
 // -------------------------------
+
+
 
 .main-header{
     display: flex;

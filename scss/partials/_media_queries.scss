@@ -1,13 +1,14 @@
 @media (min-width: 768px) {
 
     .grid-container{
-        grid-template-columns: 10% 90%;
+        grid-template-columns: 7.5% 92.5%;
         grid-template-areas: "header header"
                              "nav main";
     }
 
     nav{
         flex-direction: column;
+        justify-content: flex-start;
     }    
 }
 

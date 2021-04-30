@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="js/charts.js" defer></script>
+    <script src="js/app.js" defer></script>
+
 
 </head>
     <body class="grid-container">
@@ -47,7 +50,7 @@
             <div class="main-header">
                 <h2>Dashboard</h2>
                 <div class="main-header-search"> 
-                    <input type="search" placeholder="Search">
+                    <input type="search" id="dashboard-search" placeholder="Search">
                 </div>
             </div>
             <div class="alert" id="alert">
@@ -67,7 +70,6 @@
                 <div class="widget-container-full">
                     <canvas id="traffic-chart">
                         <!-- traffic graph chart goes here -->
-                        <script src="js/traffic.js"></script>
                     </canvas>
                 </div>
             </section>
@@ -119,9 +121,9 @@
             <form class="message-user widget">
                 <!-- message for user goes here -->
                     <legend>Message User</legend>
-                        <input type="search" placeholder="Search for User">
-                        <input type="textarea" placeholder="Message for User">
-                        <button type="submit">SEND</button>
+                        <input type="search" id="user-search" placeholder="Search for User">
+                        <input type="textarea" id="message-user" placeholder="Message for User">
+                        <button type="submit" id="send">SEND</button>
             </form>
 
             <section class="settings widget">
