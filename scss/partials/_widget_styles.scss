@@ -4,11 +4,7 @@
     border-bottom: 1px grey solid;
     width: 95%;
     margin: 1rem auto 0 auto; 
-    & h3{
-        width: 100%;
-        } 
 }
-
 
 // -------------------------------
 // traffic widget
@@ -21,6 +17,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    & li{
+        background-color: #78cf82;
+        margin: .5rem;
+        padding: .5rem .8rem;
+        border-radius: 1em;
+    }
 }
 
 // -------------------------------
@@ -64,7 +66,7 @@
 }
 
 // -------------------------------
-// new members widget
+// new members widget, recent activity widget
 // -------------------------------
 
 .member-card,
@@ -86,9 +88,126 @@
     }
 }
 
+.member-card:last-of-type,
+.activity-card:last-of-type{
+    border-bottom: none
+}
+
 // -------------------------------
 // message user widget
 // -------------------------------
+#message-user{
+    height: 10rem;
+    font:unset;
+}
+
+#user-search,
+#message-user,
+select,
+#send{
+    height: 3.5rem;
+    width: 90%;
+    margin: .5rem auto;
+    border: grey 1px solid;
+    border-radius: .25rem;
+    font-size: 1.05rem;
+}
+
+#send{
+    background-color: rgb(103, 86, 167);
+}
+
+#user-search,
+#message-user,
+select{
+    text-indent: .625rem;
+}
+
+// -------------------------------
+// settings widget
+// -------------------------------
+
+.settings div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: .5rem auto;
+    width: 90%;
+}
+
+.switch-label {
+    margin: auto 0;
+    font-size: 1.17rem;
+}
+
+// -------------------------------
+// used methods from the below articles and added javascript to manipulate the text within the switch
+// -------------------------------
+// https://css-tricks.com/the-checkbox-hack/
+// https://medium.com/front-end-weekly/creating-a-toggle-switch-in-css-2d23e496d035
+// -------------------------------
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+    height:2rem;
+    background-color:lightslategrey;
+    border: .125rem rgb(187, 187, 187) solid;
+    border-radius: 2.0625rem;
+    text-align: right;
+    color: white;
+    & p{
+        margin-top: .34rem ;
+        margin-right:.3rem;
+    }
+}
+
+#email-checkbox,
+#privacy-checkbox{
+    display: none;
+}
+
+.switch::after{
+    content: '';
+    position: absolute;
+    width: 1.525rem;
+    height: 1.525rem;
+    border: .125rem rgb(187, 187, 187) solid;
+    border-radius: 50%;
+    background-color: white;
+    top: .1rem;
+    left: .1rem;
+    transition: all .4s;
+}
+#email-checkbox:checked + .switch::after,
+#privacy-checkbox:checked + .switch::after{
+    left: 4.125rem;
+}
+
+#email-checkbox:checked + .switch,
+#privacy-checkbox:checked + .switch{
+    background-color: rgb(103, 86, 167);
+    & p {
+        text-align: left;
+        margin-left:.3rem;
+        transition: .4s;
+    }
+}
+
+#save,
+#cancel{
+    height: 3.5rem;
+    width: 45%;
+    margin: .5rem 0;
+    border: grey 1px solid;
+    border-radius: .25rem;
+    font-size: 1.05rem;
+}
+
+#save{
+    background-color: rgb(103, 86, 167);
+}
 
 // -------------------------------
 // grid areas for widgets
@@ -98,7 +217,7 @@
 .main-header{
     grid-area: main-header;
 }
-.alert{
+#alert{
     grid-area: alert;
 }
 .traffic{

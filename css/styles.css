@@ -23,18 +23,31 @@ h1 {
   grid-template-areas: "header" "nav" "main";
 }
 
+h1 {
+  font-size: 2rem;
+  flex-grow: 2;
+  margin: auto 5%;
+}
+
+h2 {
+  width: 30%;
+  margin: auto 0 auto 2.5%;
+}
+
+h2, h3, legend {
+  font-size: 1.17rem;
+  font-weight: bold;
+  width: 100%;
+}
+
 header {
+  position: relative;
   background-color: #6756a7;
   height: 3.75rem;
   display: flex;
   flex-direction: row;
   grid-area: header;
   justify-content: space-between;
-}
-
-h1 {
-  flex-grow: 2;
-  margin: auto 5%;
 }
 
 .student-name {
@@ -63,6 +76,49 @@ h1 {
   width: 1.75rem;
   height: 1.75rem;
   margin: auto 0;
+  fill: white;
+  transition: 0.5s;
+}
+
+.notifications:hover {
+  fill: #c4c4c4;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.05);
+}
+
+.notifications-dropdown {
+  display: none;
+  flex-direction: column;
+  width: 60%;
+  position: absolute;
+  top: 3.75rem;
+  left: 37.5%;
+  background-color: white;
+  border: #6756a7 1px solid;
+  border-radius: 0.25rem;
+  transition: 0.5s ease;
+}
+.notifications-dropdown h3 {
+  text-align: center;
+  margin: 0.25rem auto;
+}
+.notifications-dropdown p {
+  font-size: 1.1rem;
+  margin: 0.25rem 0 0.25rem 0;
+  padding-bottom: 0.125rem;
+}
+
+.notification {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 0.05rem gray solid;
+}
+
+.notification:last-of-type {
+  border-bottom: none;
 }
 
 nav {
@@ -80,6 +136,12 @@ nav svg {
   fill: white;
 }
 
+nav svg:hover {
+  fill: #c4c4c4;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.05);
+}
+
 #dashboard-search {
   text-indent: 0.625rem;
   font-size: 1.05rem;
@@ -94,10 +156,6 @@ nav svg {
 .main-header {
   display: flex;
   flex-direction: row;
-}
-.main-header h2 {
-  width: 30%;
-  margin: auto 0;
 }
 
 .alert-banner {
@@ -131,9 +189,6 @@ main {
   width: 95%;
   margin: 1rem auto 0 auto;
 }
-.widget h3 {
-  width: 100%;
-}
 
 .traffic-nav {
   width: 100%;
@@ -142,6 +197,12 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.traffic-nav li {
+  background-color: #78cf82;
+  margin: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 1em;
 }
 
 .facebook,
@@ -200,11 +261,120 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.member-card:last-of-type,
+.activity-card:last-of-type {
+  border-bottom: none;
+}
+
+#message-user {
+  height: 10rem;
+  font: unset;
+}
+
+#user-search,
+#message-user,
+select,
+#send {
+  height: 3.5rem;
+  width: 90%;
+  margin: 0.5rem auto;
+  border: grey 1px solid;
+  border-radius: 0.25rem;
+  font-size: 1.05rem;
+}
+
+#send {
+  background-color: #6756a7;
+}
+
+#user-search,
+#message-user,
+select {
+  text-indent: 0.625rem;
+}
+
+.settings div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.5rem auto;
+  width: 90%;
+}
+
+.switch-label {
+  margin: auto 0;
+  font-size: 1.17rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 2rem;
+  background-color: lightslategrey;
+  border: 0.125rem #bbbbbb solid;
+  border-radius: 2.0625rem;
+  text-align: right;
+  color: white;
+}
+.switch p {
+  margin-top: 0.34rem;
+  margin-right: 0.3rem;
+}
+
+#email-checkbox,
+#privacy-checkbox {
+  display: none;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  width: 1.525rem;
+  height: 1.525rem;
+  border: 0.125rem #bbbbbb solid;
+  border-radius: 50%;
+  background-color: white;
+  top: 0.1rem;
+  left: 0.1rem;
+  transition: all 0.4s;
+}
+
+#email-checkbox:checked + .switch::after,
+#privacy-checkbox:checked + .switch::after {
+  left: 4.125rem;
+}
+
+#email-checkbox:checked + .switch,
+#privacy-checkbox:checked + .switch {
+  background-color: #6756a7;
+}
+#email-checkbox:checked + .switch p,
+#privacy-checkbox:checked + .switch p {
+  text-align: left;
+  margin-left: 0.3rem;
+  transition: 0.4s;
+}
+
+#save,
+#cancel {
+  height: 3.5rem;
+  width: 45%;
+  margin: 0.5rem 0;
+  border: grey 1px solid;
+  border-radius: 0.25rem;
+  font-size: 1.05rem;
+}
+
+#save {
+  background-color: #6756a7;
+}
+
 .main-header {
   grid-area: main-header;
 }
 
-.alert {
+#alert {
   grid-area: alert;
 }
 
@@ -242,13 +412,30 @@ main {
 
 @media (min-width: 768px) {
   .grid-container {
-    grid-template-columns: 7.5% 92.5%;
+    grid-template-columns: 2.875rem calc(100% - 2.875rem);
     grid-template-areas: "header header" "nav main";
   }
 
   nav {
     flex-direction: column;
     justify-content: flex-start;
+  }
+
+  main {
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "main-header main-header" "alert alert" "traffic traffic" "daily-traffic mobile-users" "social-stats social-stats" "new-members new-members" "recent-activity recent-activity" "message-user message-user" "settings settings";
+  }
+
+  nav svg {
+    margin-left: 0.4375rem;
+  }
+
+  .widget {
+    width: 100%;
+  }
+
+  .daily-traffic {
+    border-right: 1px grey solid;
   }
 }
 @media (min-width: 1024px) {

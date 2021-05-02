@@ -7,22 +7,35 @@
                          "main";
 }
 
+h1{
+    font-size: 2rem;
+    flex-grow: 2;
+    margin: auto 5%;
+}
+
+h2{
+    width:30%;
+    margin: auto 0 auto 2.5%; 
+}
+
+h2, h3, legend{
+    font-size: 1.17rem;
+    font-weight: bold;
+    width: 100%;
+    } 
+
 // -------------------------------
 // header elements
 // -------------------------------
 
 header{
+    position:relative;
     background-color: rgb(103, 86, 167);
     height: 3.75rem;
     display: flex;
     flex-direction: row;
     grid-area: header;
     justify-content:space-between;
-}
-
-h1{
-    flex-grow: 2;
-    margin: auto 5%;
 }
 
 .student-name{
@@ -51,7 +64,57 @@ h1{
     width: 1.75rem;
     height: 1.75rem;
     margin: auto 0;
+    fill:white;
+    transition: .5s;
 }
+
+.notifications:hover{
+    fill:(rgb(196, 196, 196));
+    transition: .2s ease-in-out;
+    transform: scale(1.05);
+}
+
+// -------------------------------
+// general concept from this page
+// https://www.w3schools.com/howto/howto_js_dropdown.asp
+// -------------------------------
+
+.notifications-dropdown{
+    display:none;
+    // display:flex;
+    flex-direction: column;
+    width: 60%;
+    position:absolute;
+    top:3.75rem;
+    left: 37.5%;
+    background-color: white;
+    border: rgb(103, 86, 167) 1px solid;
+    border-radius: .25rem;
+    transition: .5s ease;
+    & h3{
+        text-align: center;
+        margin: .25rem auto;
+    }
+    & p{
+        font-size:1.1rem;
+        margin: .25rem 0 .25rem 0;
+        padding-bottom: .125rem;
+    }
+}
+
+.notification{
+    width:95%;
+    margin:0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: .05rem gray solid;
+}
+
+.notification:last-of-type{
+    border-bottom: none;
+}
+
 
 // -------------------------------
 // nav elements
@@ -70,6 +133,12 @@ nav svg{
     width: 2rem;
     margin: .625rem auto;
     fill: white;
+}
+
+nav svg:hover{
+    fill:(rgb(196, 196, 196));
+    transition: .2s ease-in-out;
+    transform: scale(1.05);
 }
 
 // -------------------------------
@@ -95,11 +164,6 @@ nav svg{
 .main-header{
     display: flex;
     flex-direction: row;
-    & h2{
-        width:30%;
-        margin: auto 0; 
-    }
-    
 }
 
 .alert-banner{

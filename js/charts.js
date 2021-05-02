@@ -1,3 +1,40 @@
+// ------------------------
+// alert bell action
+// ------------------------
+
+const notifications = document.querySelector('.notifications')
+
+notifications.addEventListener('click', (e) =>{
+  notificationsDropdown = document.querySelector('.notifications-dropdown')
+  notificationsDropdown.style.display = "flex"
+})
+
+window.onclick = (e) =>{
+  if(e.target.className != "notifications-dropdown" || e.target !== notifications){
+    notificationsDropdown.style.display = "none"
+  }
+}
+
+
+
+// ------------------------
+// notifications/alert banner
+// ------------------------
+
+const alertBanner = document.querySelector('#alert')
+ 
+alertBanner.innerHTML = `<div class="alert-banner">
+<p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks
+to complete</p>
+<p class="alert-banner-close">x</p>
+</div>`
+
+alertBanner.addEventListener("click", e =>{
+    if (e.target === document.querySelector(".alert-banner-close")){
+        alertBanner.style.display = "none"
+    }
+}
+)
 
 // ------------------------
 // Traffic line chart
@@ -115,20 +152,7 @@ const mobileOptions = {
 // social stats
 // ------------------------
 
-const alertBanner = document.querySelector('#alert')
- 
-alertBanner.innerHTML = `<div class="alert-banner">
-<p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks
-to complete</p>
-<p class="alert-banner-close">x</p>
-</div>`
 
-alertBanner.addEventListener("click", e =>{
-    if (e.target = document.querySelector(".alert-banner-close")){
-        alertBanner.style.display = "none"
-    }
-}
-)
 
 // ------------------------
 // form data
@@ -150,9 +174,29 @@ send.addEventListener('click', () => {
     else if (messageUser.value === ""){
       alert("Message field must be filled out")
     }
-    else if (searchUser.value !== "" && messageUser.value !== ""){}
+    if (searchUser.value !== "" && messageUser.value !== ""){}
       alert(`Message sent to ${searchUser.value}`)
   
 })
 
+// ------------------------
+// settings switches
+// ------------------------
 
+let settings = document.querySelector('.settings')
+
+settings.addEventListener('click', (e) => {
+  let switches = document.getElementsByClassName('switch')
+  let checkbox = document.getElementsByClassName('checkbox')
+
+  if (e.target.className === "switch" || "switch-label"){
+    for (i = 0; i<switches.length; i++){
+      if(checkbox[i].checked === true){
+        switches[i].firstChild.textContent = "ON"
+      }
+      if(checkbox[i].checked === false){
+        switches[i].firstChild.textContent = "OFF"
+      }
+    }
+  }
+})
