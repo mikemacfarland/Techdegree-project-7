@@ -1,6 +1,12 @@
 .widget{
     display: flex;
     flex-direction: column;
+    border-bottom: 1px grey solid;
+    width: 95%;
+    margin: 1rem auto 0 auto; 
+    & h3{
+        width: 100%;
+        } 
 }
 
 
@@ -20,6 +26,65 @@
 // -------------------------------
 // daily traffic widget
 // -------------------------------
+
+// -------------------------------
+// social stats widget
+// -------------------------------
+
+.facebook,
+.instagram,
+.twitter{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: .75rem .75rem; 
+    margin: .25rem 0;
+    border:grey 1px solid;
+    border-radius: .5rem;
+    & p{
+        font-size: 2.25rem;
+        
+    }
+}
+
+.facebook div,
+.instagram div,
+.twitter div{
+    flex-direction: column;
+    margin-left: 1rem;
+    & h4{
+        color:rgb(103, 86, 167);
+    }
+}
+
+.social-svg{
+    height: 3rem;
+    width: 3rem;
+    fill: rgb(103, 86, 167);
+}
+
+// -------------------------------
+// new members widget
+// -------------------------------
+
+.member-card,
+.activity-card{
+    width:90%;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 1rem auto;
+    border-bottom:grey 1px solid;
+    & img{
+        margin: .5rem auto;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+    }
+    & p{
+        margin-bottom: .5rem;
+    }
+}
 
 // -------------------------------
 // message user widget
