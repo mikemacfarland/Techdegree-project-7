@@ -2,20 +2,34 @@
 // alert bell action
 // ------------------------
 
-const notifications = document.querySelector('.notifications')
+const notificationsBell = document.querySelector('.notifications')
+const notifications = document.getElementsByClassName('notification')
+const body = document.querySelector('body')
+const newNotification = document.querySelector(".new-notification")
+let notificationsDropdown = document.querySelector('.notifications-dropdown')
+let notifyChildren = notificationsDropdown.children
 
-notifications.addEventListener('click', (e) =>{
-  notificationsDropdown = document.querySelector('.notifications-dropdown')
-  notificationsDropdown.style.display = "flex"
-})
-
-window.onclick = (e) =>{
-  if(e.target.className != "notifications-dropdown" || e.target !== notifications){
+body.addEventListener('click', (e) =>{
+  if (e.target === notificationsBell && notificationsDropdown.style.display === "flex"){
     notificationsDropdown.style.display = "none"
+    return
   }
-}
-
-
+  if (e.target === notificationsBell){
+    notificationsDropdown.style.display = "flex"
+    newNotification.style.display = "none"
+    return
+  }
+  if (e.target.className === 'close-alert'){
+    e.target.parentNode.remove()
+    }
+  if (notifications.length == '0'){
+    notificationsDropdown.style.display = "none"
+    newNotification.style.display = "none"
+  }
+  if (e.target === notificationsDropdown.querySelector('div')){
+    console.log('wow')
+  }
+})
 
 // ------------------------
 // notifications/alert banner
@@ -74,6 +88,7 @@ let trafficOptions = {
     options: trafficOptions
     });
     
+let dataSelection = document.querySelectorAll('.traffic-nav-link')
 
 // ------------------------
 // bar chart
@@ -146,13 +161,6 @@ const mobileOptions = {
     data: mobileData,
     options: mobileOptions
     });
-    
-
-// ------------------------
-// social stats
-// ------------------------
-
-
 
 // ------------------------
 // form data
@@ -167,16 +175,19 @@ const send = document.querySelector('#send')
 send.addEventListener('click', () => {
   if (searchUser.value === "" && messageUser.value === ""){
     alert("User and Message Fields must be filled out")
+    return
   }
     else if (searchUser.value === ""){
       alert("User field must be filled out")
+      return
     }
     else if (messageUser.value === ""){
       alert("Message field must be filled out")
+      return
     }
-    if (searchUser.value !== "" && messageUser.value !== ""){}
+    else{
       alert(`Message sent to ${searchUser.value}`)
-  
+    }
 })
 
 // ------------------------
@@ -199,4 +210,15 @@ settings.addEventListener('click', (e) => {
       }
     }
   }
+})
+
+// ------------------------
+// settings local storage
+// ------------------------
+
+const saveSettings = document.querySelector('#save')
+
+
+saveSettings.addEventListener('click', () =>{
+
 })

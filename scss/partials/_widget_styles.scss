@@ -97,14 +97,15 @@
 // message user widget
 // -------------------------------
 #message-user{
-    height: 10rem;
-    font:unset;
+    min-height: 7.25rem;
+    padding-top: .825rem;
 }
 
 #user-search,
 #message-user,
 select,
 #send{
+    font: inherit;
     height: 3.5rem;
     width: 90%;
     margin: .5rem auto;

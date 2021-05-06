@@ -1,3 +1,4 @@
+
 .grid-container{
     width: 100%;
     margin: 0;
@@ -83,10 +84,10 @@ header{
     display:none;
     // display:flex;
     flex-direction: column;
-    width: 60%;
+    width: 75%;
     position:absolute;
     top:3.75rem;
-    left: 37.5%;
+    left: 22.5%;
     background-color: white;
     border: rgb(103, 86, 167) 1px solid;
     border-radius: .25rem;
@@ -99,6 +100,9 @@ header{
         font-size:1.1rem;
         margin: .25rem 0 .25rem 0;
         padding-bottom: .125rem;
+    }
+    & .close-alert{
+        margin-left:.5rem;
     }
 }
 
