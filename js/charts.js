@@ -1,13 +1,47 @@
 // ------------------------
-// alert bell action
+// VARIABLES
 // ------------------------
 
+// variables for alert dropdown
 const notificationsBell = document.querySelector('.notifications')
 const notifications = document.getElementsByClassName('notification')
 const body = document.querySelector('body')
 const newNotification = document.querySelector(".new-notification")
+
 let notificationsDropdown = document.querySelector('.notifications-dropdown')
 let notifyChildren = notificationsDropdown.children
+
+// variable for alert banner
+const alertBanner = document.querySelector('#alert')
+
+// variables for traffic line chart
+const trafficCanvas = document.querySelector('#traffic-chart')
+
+let dataSelection = document.querySelectorAll('.traffic-nav-link')
+
+// variable for traffic bar chart
+const dailyCanvas = document.querySelector('#daily-traffic-chart')
+
+// variable for dohnut chart
+const mobileCanvas = document.querySelector('#mobile-users-chart')
+
+// variables for message form
+const searchUser = document.querySelector('#user-search')
+const messageUser = document.querySelector('#message-user')
+const send = document.querySelector('#send')
+
+// variables for settings widget
+let settings = document.querySelector('#settings')
+let switches = document.getElementsByClassName('switch')
+let checkbox = document.getElementsByClassName('checkbox')
+
+const emailNotifications = document.querySelector('#email-checkbox')
+const profilePrivacy = document.querySelector('#privacy-checkbox')
+const timeZone = document.querySelector('#timezone')
+
+// ------------------------
+// ALERT BELL NOTIFICATIONS DROPDOWN
+// ------------------------
 
 body.addEventListener('click', (e) =>{
   if (e.target === notificationsBell && notificationsDropdown.style.display === "flex"){
@@ -32,11 +66,9 @@ body.addEventListener('click', (e) =>{
 })
 
 // ------------------------
-// notifications/alert banner
+// ALERT BANNER
 // ------------------------
 
-const alertBanner = document.querySelector('#alert')
- 
 alertBanner.innerHTML = `<div class="alert-banner">
 <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks
 to complete</p>
@@ -51,10 +83,8 @@ alertBanner.addEventListener("click", e =>{
 )
 
 // ------------------------
-// Traffic line chart
+// TRAFFIC LINE CHART
 // ------------------------
-
-const trafficCanvas = document.querySelector('#traffic-chart')
 
 const trafficData = {
   labels: [ 0,600,1000,1500,2000,2500],
@@ -88,13 +118,9 @@ let trafficOptions = {
     options: trafficOptions
     });
     
-let dataSelection = document.querySelectorAll('.traffic-nav-link')
-
 // ------------------------
-// bar chart
+// BAR CHART
 // ------------------------
-
-const dailyCanvas = document.querySelector('#daily-traffic-chart')
 
 const dailyData = {
   labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -124,10 +150,8 @@ const dailyData = {
     });
 
 // ------------------------
-// dohnut chart
+// DOHNUT CHART
 // ------------------------
-
-const mobileCanvas = document.querySelector('#mobile-users-chart')
 
 const mobileData = {
   labels: ["Desktop", "Tablet", "Phones"],
@@ -163,62 +187,86 @@ const mobileOptions = {
     });
 
 // ------------------------
-// form data
+// USER MESSAGE FORM
 // ------------------------
 
-const searchUser = document.querySelector('#user-search')
-
-const messageUser = document.querySelector('#message-user')
-
-const send = document.querySelector('#send')
-
+// send button event listener
 send.addEventListener('click', () => {
   if (searchUser.value === "" && messageUser.value === ""){
     alert("User and Message Fields must be filled out")
     return
   }
-    else if (searchUser.value === ""){
-      alert("User field must be filled out")
-      return
-    }
-    else if (messageUser.value === ""){
-      alert("Message field must be filled out")
-      return
-    }
-    else{
-      alert(`Message sent to ${searchUser.value}`)
-    }
-})
-
-// ------------------------
-// settings switches
-// ------------------------
-
-let settings = document.querySelector('.settings')
-
-settings.addEventListener('click', (e) => {
-  let switches = document.getElementsByClassName('switch')
-  let checkbox = document.getElementsByClassName('checkbox')
-
-  if (e.target.className === "switch" || "switch-label"){
-    for (i = 0; i<switches.length; i++){
-      if(checkbox[i].checked === true){
-        switches[i].firstChild.textContent = "ON"
-      }
-      if(checkbox[i].checked === false){
-        switches[i].firstChild.textContent = "OFF"
-      }
-    }
+  else if (searchUser.value === ""){
+    alert("User field must be filled out")
+    return
+  }
+  else if (messageUser.value === ""){
+    alert("Message field must be filled out")
+    return
+  }
+  else{
+    alert(`Message sent to ${searchUser.value}`)
   }
 })
 
 // ------------------------
-// settings local storage
+// SETTINGS WIDGET
 // ------------------------
 
-const saveSettings = document.querySelector('#save')
+// functions for local storage setting and retreival
+function setStorage(key,value){
+  window.localStorage.setItem(key,value)
+}
 
+function getStorage(key){
+  localStorage.getItem(key)
+    checkboxes()
+  }
 
-saveSettings.addEventListener('click', () =>{
+// IIFE - using getStorage to set values
+( () => {
+emailNotifications.checked = JSON.parse(localStorage.getItem("email"))
+profilePrivacy.checked = JSON.parse(localStorage.getItem('privacy'))
+timezone.value = localStorage.getItem('timezone')
+if (timezone.value === ""){
+  timeZone.value = 'default'
+}
 
+checkboxes()
+})()
+
+// function for on off switch labels
+function checkboxes(){
+for (let i = 0; i < checkbox.length; i++){
+
+  if(checkbox[i].checked === true){
+    switches[i].firstChild.textContent = "ON"
+  }
+
+  if(checkbox[i].checked === false){
+    switches[i].firstChild.textContent = "OFF"
+  }
+}}
+
+// event listener for save and cancel buttons
+settings.addEventListener('click', (e) => {
+
+  checkboxes()
+  if (e.target.id === "cancel"){
+  emailNotifications.checked = false
+  profilePrivacy.checked = false
+  timeZone.value = 'default'
+  localStorage.clear()
+  checkboxes()
+  }
+
+  if (e.target.id === "save"){
+    setStorage("email",emailNotifications.checked)
+    setStorage("privacy",profilePrivacy.checked)
+    setStorage("timezone",timezone.value)
+    if (timezone.value === 'default'){
+      alert('Please select a timezone')
+    }
+  }
 })
+
