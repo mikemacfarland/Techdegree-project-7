@@ -15,9 +15,10 @@ let notifyChildren = notificationsDropdown.children
 const alertBanner = document.querySelector('#alert')
 
 // variables for traffic line chart
+const trafficNav = document.querySelector(".traffic-nav")
 const trafficCanvas = document.querySelector('#traffic-chart')
 
-let dataSelection = document.querySelectorAll('.traffic-nav-link')
+
 
 // variable for traffic bar chart
 const dailyCanvas = document.querySelector('#daily-traffic-chart')
@@ -86,12 +87,53 @@ alertBanner.addEventListener("click", e =>{
 // TRAFFIC LINE CHART
 // ------------------------
 
-const trafficData = {
-  labels: [ 0,600,1000,1500,2000,2500],
+
+trafficNav.addEventListener('click', (e) =>{
+  function replaceData(timeframe,dataset){
+    if (e.target.textContent === timeframe){
+    trafficChart.data = dataset
+    trafficChart.update()
+  }}
+  replaceData("Hourly", hourlyTraffic)
+  replaceData("Daily",dailyTraffic)
+  replaceData("Weekly",weeklyTraffic)
+  replaceData("Monthly",monthlyTraffic)
+})
+
+const hourlyTraffic = {
+  labels: ["12AM","3AM","6AM","9AM","12PM","3PM","6PM","9PM","12AM"],
   datasets: [{
-  data: [16-22,23-29,30-5,6-12,13-19,20-28,27-3,4-10,11-17,18-24,25-31],
+    data: [0,2,24,20,42,32,67,21,1],
+    backgroundColor: 'rgb(103, 86, 167)',
+    borderWidth: '1',
+  }]
+}
+
+const dailyTraffic = {
+  labels: ["S","M","T","W","T","F","S"],
+  datasets: [{
+    data: [120,218,113,160,426,402,82],
+    backgroundColor: 'rgb(103, 86, 167)',
+    borderWidth: '1',
+  }]
+}
+
+const weeklyTraffic = {
+  labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
+  "4-10", "11-17", "18-24", "25-31"],
+  datasets: [{
+  data: [ 620,810,1002,715,834,682,523,1086,865,1243,1205],
   backgroundColor: 'rgb(103, 86, 167)',
   borderWidth: '1',
+  }]
+}
+
+const monthlyTraffic = {
+  labels: ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","NOV","DEC"],
+  datasets: [{
+    data: [4230,3920,4859,4600,5230,5600,3863,4925,5820,6204,6320,7240],
+    backgroundColor: 'rgb(103, 86, 167)',
+    borderWidth: '1',
   }]
 }
 
@@ -114,7 +156,7 @@ let trafficOptions = {
   };
   let trafficChart = new Chart(trafficCanvas, {
     type: 'line',
-    data: trafficData,
+    data: weeklyTraffic,
     options: trafficOptions
     });
     
@@ -126,7 +168,7 @@ const dailyData = {
   labels: ["S", "M", "T", "W", "T", "F", "S"],
   datasets: [{
   label: '# of Hits',
-  data: [75, 115, 175, 125, 225, 200, 100],
+  data: [120,218,113,160,426,402,82],
   backgroundColor: 'rgb(103, 86, 167)',
   borderWidth: 1
   }]

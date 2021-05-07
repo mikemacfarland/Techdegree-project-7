@@ -67,6 +67,7 @@ header{
     margin: auto 0;
     fill:white;
     transition: .5s;
+    cursor: pointer;
 }
 
 .notifications:hover{
@@ -119,6 +120,9 @@ header{
     border-bottom: none;
 }
 
+.close-alert{
+    cursor: pointer;
+}
 
 // -------------------------------
 // nav elements
@@ -182,6 +186,9 @@ nav svg:hover{
     justify-content: space-between;
     & p{
         padding:0 0.9375rem;
+    }
+    & p:last-of-type{
+        cursor: pointer;
     }
 }
 

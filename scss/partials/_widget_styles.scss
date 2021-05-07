@@ -18,6 +18,7 @@
     flex-direction: row;
     justify-content: space-around;
     & li{
+        cursor: pointer;
         background-color: #78cf82;
         margin: .5rem;
         padding: .5rem .8rem;
@@ -115,6 +116,7 @@ select,
 }
 
 #send{
+    cursor: pointer;
     background-color: rgb(103, 86, 167);
 }
 
@@ -122,6 +124,10 @@ select,
 #message-user,
 select{
     text-indent: .625rem;
+}
+
+select{
+    cursor: pointer;
 }
 
 // -------------------------------
@@ -139,6 +145,7 @@ select{
 .switch-label {
     margin: auto 0;
     font-size: 1.17rem;
+    cursor: pointer;
 }
 
 // -------------------------------
@@ -158,6 +165,7 @@ select{
     border-radius: 2.0625rem;
     text-align: right;
     color: white;
+    cursor: pointer;
     & p{
         margin-top: .34rem ;
         margin-right:.3rem;
@@ -204,6 +212,7 @@ select{
     border: grey 1px solid;
     border-radius: .25rem;
     font-size: 1.05rem;
+    cursor: pointer;
 }
 
 #save{
@@ -213,7 +222,6 @@ select{
 // -------------------------------
 // grid areas for widgets
 // -------------------------------
-
 
 .main-header{
     grid-area: main-header;
