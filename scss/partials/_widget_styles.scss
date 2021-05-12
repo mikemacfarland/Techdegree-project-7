@@ -1,16 +1,17 @@
 .widget{
     display: flex;
+    justify-content: center;
+    width: 95%;
     flex-direction: column;
     flex-wrap:wrap;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    padding: 1rem 2.5%;
     border-bottom: 1px grey solid;
    
 }
 
 canvas{
-    max-width: 95%;
-    min-width: 95%;
+    max-width: 100%;
+    min-width: 100%;
     margin: auto auto;
 }
 
@@ -39,11 +40,8 @@ canvas{
 // -------------------------------
 
 .social-tabs{
-    margin:auto;
     display:flex;
-    justify-content: space-between;
     flex-direction: column;
-    width:95%;
 }
 
 .facebook,
@@ -53,10 +51,9 @@ canvas{
     flex-direction: row;
     justify-content: flex-start;
     padding: .75rem .75rem; 
-    margin: .25rem auto;
+    margin: .25rem 0;
     border:grey 1px solid;
     border-radius: .5rem;
-    width: 90%;
     & p{
         font-size: 2.25rem;
         
@@ -85,12 +82,11 @@ canvas{
 
 .member-card,
 .activity-card{
-    width:95%;
+    width: 100%;
     display:flex;
     flex-direction: column;
     text-align: center;
-    margin: 1rem auto 0 auto;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
     border-bottom:grey 1px solid;
     & img{
         margin: .5rem auto;
@@ -120,7 +116,7 @@ select,
 #send{
     font: inherit;
     height: 3.5rem;
-    width: 90%;
+    width: 100%;
     margin: .5rem auto;
     border: grey 1px solid;
     border-radius: .25rem;
@@ -149,7 +145,7 @@ select{
     flex-direction: row;
     justify-content: space-between;
     margin: 1rem auto 0 auto;
-    width: 90%;
+    width: 100%;
 }
 
 .switch-label {

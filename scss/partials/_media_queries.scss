@@ -34,14 +34,13 @@
 
     .daily-traffic,
     .mobile-users{
-        h3,
-        canvas{
-            width: 89.97% ;
-        }
+        width: 90%;
+        padding: 1rem 5%;
     }
 
     .social-tabs{
         flex-direction: row;
+        justify-content: space-between;
     }
 
     .facebook,
@@ -84,9 +83,19 @@
             }
     }
 
+    
+
     #settings{
         border-left: 1px grey solid;
         justify-content: flex-end;
+    }
+    
+    .recent-activity,
+    #members,
+    #settings,
+    .message-user{
+        width: 90%;
+        padding: 1rem 5%;
     }
 
 }
