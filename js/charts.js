@@ -3,13 +3,12 @@
 // ------------------------
 
 // variables for alert dropdown
+const clickoff = document.querySelector('.clickoff')
 const notificationsBell = document.querySelector('.notifications')
 const notifications = document.getElementsByClassName('notification')
 const body = document.querySelector('body')
 const newNotification = document.querySelector(".new-notification")
-
-let notificationsDropdown = document.querySelector('.notifications-dropdown')
-let notifyChildren = notificationsDropdown.children
+const notificationsDropdown = document.querySelector('.notifications-dropdown')
 
 // variable for alert banner
 const alertBanner = document.querySelector('#alert')
@@ -17,8 +16,6 @@ const alertBanner = document.querySelector('#alert')
 // variables for traffic line chart
 const trafficNav = document.querySelector(".traffic-nav")
 const trafficCanvas = document.querySelector('#traffic-chart')
-
-
 
 // variable for traffic bar chart
 const dailyCanvas = document.querySelector('#daily-traffic-chart')
@@ -32,9 +29,9 @@ const messageUser = document.querySelector('#message-user')
 const send = document.querySelector('#send')
 
 // variables for settings widget
-let settings = document.querySelector('#settings')
-let switches = document.getElementsByClassName('switch')
-let checkbox = document.getElementsByClassName('checkbox')
+const settings = document.querySelector('#settings')
+const switches = document.getElementsByClassName('switch')
+const checkbox = document.getElementsByClassName('checkbox')
 
 const emailNotifications = document.querySelector('#email-checkbox')
 const profilePrivacy = document.querySelector('#privacy-checkbox')
@@ -45,25 +42,34 @@ const timeZone = document.querySelector('#timezone')
 // ------------------------
 
 body.addEventListener('click', (e) =>{
+
   if (e.target === notificationsBell && notificationsDropdown.style.display === "flex"){
     notificationsDropdown.style.display = "none"
     return
   }
+
   if (e.target === notificationsBell){
     notificationsDropdown.style.display = "flex"
+    clickoff.style.display = "block"
     newNotification.style.display = "none"
     return
   }
+
   if (e.target.className === 'close-alert'){
     e.target.parentNode.remove()
     }
+
   if (notifications.length == '0'){
     notificationsDropdown.style.display = "none"
     newNotification.style.display = "none"
   }
-  if (e.target === notificationsDropdown.querySelector('div')){
-    console.log('wow')
+
+  if (e.target.className === "clickoff" || notificationsDropdown.style.display === "none"){
+    notificationsDropdown.style.display = "none"
+    clickoff.style.display = "none"
   }
+
+  // if (e.target)
 })
 
 // ------------------------
@@ -86,7 +92,6 @@ alertBanner.addEventListener("click", e =>{
 // ------------------------
 // TRAFFIC LINE CHART
 // ------------------------
-
 
 trafficNav.addEventListener('click', (e) =>{
   function replaceData(timeframe,dataset){
@@ -255,7 +260,9 @@ send.addEventListener('click', () => {
 // SETTINGS WIDGET
 // ------------------------
 
-// functions for local storage setting and retreival
+// ------------------------
+// LOCAL STORAGE JS
+// ------------------------
 function setStorage(key,value){
   window.localStorage.setItem(key,value)
 }

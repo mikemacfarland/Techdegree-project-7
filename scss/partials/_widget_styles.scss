@@ -1,13 +1,21 @@
 .widget{
     display: flex;
     flex-direction: column;
+    flex-wrap:wrap;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
     border-bottom: 1px grey solid;
-    width: 95%;
-    margin: 1rem auto 0 auto; 
+   
+}
+
+canvas{
+    max-width: 95%;
+    min-width: 95%;
+    margin: auto auto;
 }
 
 // -------------------------------
-// traffic widget
+// TRAFFIC WIDGET
 // -------------------------------
 
 .traffic-nav{
@@ -27,12 +35,16 @@
 }
 
 // -------------------------------
-// daily traffic widget
+// SOCIAL STATS WIDGET
 // -------------------------------
 
-// -------------------------------
-// social stats widget
-// -------------------------------
+.social-tabs{
+    margin:auto;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width:95%;
+}
 
 .facebook,
 .instagram,
@@ -41,9 +53,10 @@
     flex-direction: row;
     justify-content: flex-start;
     padding: .75rem .75rem; 
-    margin: .25rem 0;
+    margin: .25rem auto;
     border:grey 1px solid;
     border-radius: .5rem;
+    width: 90%;
     & p{
         font-size: 2.25rem;
         
@@ -67,35 +80,34 @@
 }
 
 // -------------------------------
-// new members widget, recent activity widget
+// NEW MEMBERS & ACTIVITY WIDGETS
 // -------------------------------
 
 .member-card,
 .activity-card{
-    width:90%;
+    width:95%;
     display:flex;
     flex-direction: column;
     text-align: center;
-    margin: 1rem auto;
+    margin: 1rem auto 0 auto;
+    padding-bottom: 1rem;
     border-bottom:grey 1px solid;
     & img{
         margin: .5rem auto;
         height: 80px;
         width: 80px;
         border-radius: 50%;
-    }
-    & p{
-        margin-bottom: .5rem;
-    }
+}
 }
 
 .member-card:last-of-type,
 .activity-card:last-of-type{
-    border-bottom: none
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 // -------------------------------
-// message user widget
+// MESSAGE USER FORM & WIDGET
 // -------------------------------
 #message-user{
     min-height: 7.25rem;
@@ -126,19 +138,17 @@ select{
     text-indent: .625rem;
 }
 
-select{
-    cursor: pointer;
-}
+
 
 // -------------------------------
-// settings widget
+// SETTINGS WIDGET
 // -------------------------------
 
 .settings div{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: .5rem auto;
+    margin: 1rem auto 0 auto;
     width: 90%;
 }
 
@@ -146,6 +156,12 @@ select{
     margin: auto 0;
     font-size: 1.17rem;
     cursor: pointer;
+}
+
+select{
+    margin-top: 1rem;
+    cursor: pointer;
+    
 }
 
 // -------------------------------
@@ -220,7 +236,7 @@ select{
 }
 
 // -------------------------------
-// grid areas for widgets
+// GRID AREAS
 // -------------------------------
 
 .main-header{

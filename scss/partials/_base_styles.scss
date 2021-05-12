@@ -1,3 +1,6 @@
+// -------------------------------
+// BASE
+// -------------------------------
 
 .grid-container{
     width: 100%;
@@ -17,16 +20,19 @@ h1{
 h2{
     width:30%;
     margin: auto 0 auto 2.5%; 
-}
-
-h2, h3, legend{
     font-size: 1.17rem;
     font-weight: bold;
-    width: 100%;
+}
+
+h3, legend{
+    font-size: 1.17rem;
+    font-weight: bold;
+    width: 95%;
+    margin: 0 auto 1rem auto;
     } 
 
 // -------------------------------
-// header elements
+// HEADER ELEMENTS & DROPDOWN NOTIFICATIONS
 // -------------------------------
 
 header{
@@ -62,6 +68,7 @@ header{
 }
 
 .notifications{
+    z-index: 3;
     width: 1.75rem;
     height: 1.75rem;
     margin: auto 0;
@@ -77,11 +84,20 @@ header{
 }
 
 // -------------------------------
-// general concept from this page
+// general concept for notifications from this page 
 // https://www.w3schools.com/howto/howto_js_dropdown.asp
 // -------------------------------
 
+.clickoff{
+    display:none;
+    position:absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
 .notifications-dropdown{
+    z-index: 2;
     display:none;
     // display:flex;
     flex-direction: column;
@@ -125,7 +141,7 @@ header{
 }
 
 // -------------------------------
-// nav elements
+// NAV ELEMENTS
 // -------------------------------
 
 nav{
@@ -150,7 +166,7 @@ nav svg:hover{
 }
 
 // -------------------------------
-// dashboard elements
+// DASHBOARD ELEMENTS
 // -------------------------------
 
 #dashboard-search{
@@ -166,7 +182,7 @@ nav svg:hover{
 
 
 // -------------------------------
-// main elements
+// MAIN ELEMENTS
 // -------------------------------
 
 .main-header{
@@ -191,8 +207,6 @@ nav svg:hover{
         cursor: pointer;
     }
 }
-
-
 
 main{
     width: 100%;

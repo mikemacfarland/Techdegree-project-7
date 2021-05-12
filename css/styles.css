@@ -32,12 +32,15 @@ h1 {
 h2 {
   width: 30%;
   margin: auto 0 auto 2.5%;
-}
-
-h2, h3, legend {
   font-size: 1.17rem;
   font-weight: bold;
-  width: 100%;
+}
+
+h3, legend {
+  font-size: 1.17rem;
+  font-weight: bold;
+  width: 95%;
+  margin: 0 auto 1rem auto;
 }
 
 header {
@@ -73,6 +76,7 @@ header {
 }
 
 .notifications {
+  z-index: 3;
   width: 1.75rem;
   height: 1.75rem;
   margin: auto 0;
@@ -87,7 +91,16 @@ header {
   transform: scale(1.05);
 }
 
+.clickoff {
+  display: none;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
 .notifications-dropdown {
+  z-index: 2;
   display: none;
   flex-direction: column;
   width: 75%;
@@ -196,9 +209,16 @@ main {
 .widget {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
   border-bottom: 1px grey solid;
-  width: 95%;
-  margin: 1rem auto 0 auto;
+}
+
+canvas {
+  max-width: 95%;
+  min-width: 95%;
+  margin: auto auto;
 }
 
 .traffic-nav {
@@ -217,6 +237,14 @@ main {
   border-radius: 1em;
 }
 
+.social-tabs {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 95%;
+}
+
 .facebook,
 .instagram,
 .twitter {
@@ -224,9 +252,10 @@ main {
   flex-direction: row;
   justify-content: flex-start;
   padding: 0.75rem 0.75rem;
-  margin: 0.25rem 0;
+  margin: 0.25rem auto;
   border: grey 1px solid;
   border-radius: 0.5rem;
+  width: 90%;
 }
 .facebook p,
 .instagram p,
@@ -254,11 +283,12 @@ main {
 
 .member-card,
 .activity-card {
-  width: 90%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
+  padding-bottom: 1rem;
   border-bottom: grey 1px solid;
 }
 .member-card img,
@@ -268,14 +298,11 @@ main {
   width: 80px;
   border-radius: 50%;
 }
-.member-card p,
-.activity-card p {
-  margin-bottom: 0.5rem;
-}
 
 .member-card:last-of-type,
 .activity-card:last-of-type {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 #message-user {
@@ -307,21 +334,22 @@ select {
   text-indent: 0.625rem;
 }
 
-select {
-  cursor: pointer;
-}
-
 .settings div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0.5rem auto;
+  margin: 1rem auto 0 auto;
   width: 90%;
 }
 
 .switch-label {
   margin: auto 0;
   font-size: 1.17rem;
+  cursor: pointer;
+}
+
+select {
+  margin-top: 1rem;
   cursor: pointer;
 }
 
@@ -451,18 +479,57 @@ select {
     margin-left: 0.4375rem;
   }
 
-  .widget {
-    width: 100%;
-  }
-
   .daily-traffic {
     border-right: 1px grey solid;
+  }
+
+  .daily-traffic h3,
+.daily-traffic canvas,
+.mobile-users h3,
+.mobile-users canvas {
+    width: 89.97%;
+  }
+
+  .social-tabs {
+    flex-direction: row;
+  }
+
+  .facebook,
+.instagram,
+.twitter {
+    width: 28.5%;
+  }
+
+  #settings legend {
+    margin-bottom: auto;
   }
 }
 @media (min-width: 1024px) {
   main {
-    grid-template-columns: 50%;
-    grid-template-areas: "main-header main-header" "alert alert" "traffic traffic" "traffic users" "social social" "stats stats" "new-members activity" "message-form settings";
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "main-header main-header" "alert alert" "traffic traffic" "daily-traffic mobile-users" "social-stats social-stats" "new-members recent-activity" "message-user settings";
+  }
+
+  .recent-activity {
+    border-left: 1px grey solid;
+  }
+
+  .member-card,
+.activity-card {
+    flex-direction: row;
+  }
+  .member-card div,
+.activity-card div {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  #settings {
+    border-left: 1px grey solid;
+    justify-content: flex-end;
   }
 }
 

@@ -28,27 +28,68 @@
         margin-left: .4375rem;
     }
 
-    .widget{
-        width:100%;
-    }
-
     .daily-traffic{
         border-right: 1px grey solid;
     }
 
+    .daily-traffic,
+    .mobile-users{
+        h3,
+        canvas{
+            width: 89.97% ;
+        }
+    }
+
+    .social-tabs{
+        flex-direction: row;
+    }
+
+    .facebook,
+    .instagram,
+    .twitter{
+        width: 28.5%;
+    }
+
+    #settings legend{
+        margin-bottom: auto;
+    }
 }
 
 @media (min-width: 1024px) {
 
     main{
-        grid-template-columns: 50%;
+        grid-template-columns: 50% 50%;
         grid-template-areas:"main-header main-header"
                             "alert alert"
                             "traffic traffic"
-                             "traffic users"
-                             "social social"
-                             "stats stats"
-                             "new-members activity"
-                             "message-form settings";
+                             "daily-traffic mobile-users"
+                             "social-stats social-stats"
+                             "new-members recent-activity"
+                             "message-user settings";
     }
+
+    .recent-activity{
+        border-left:1px grey solid;
+    }
+
+    .member-card,
+    .activity-card{
+        flex-direction: row;
+        & img{
+            
+        }
+        & div{
+            width: 75%;
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: left;
+            }
+    }
+
+    #settings{
+        border-left: 1px grey solid;
+        justify-content: flex-end;
+    }
+
 }
