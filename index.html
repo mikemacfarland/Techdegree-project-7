@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>A WebApp Project for TeamTreehouse</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -212,26 +212,26 @@
 
             <form class="message-user widget">
                 <!-- message for user goes here -->
-                    <legend>Message User</legend>
+                    <h3>Message User</h3>
                         <input type="search" id="user-search" placeholder="Search for User">
                         <textarea id="message-user" placeholder="Message for User"></textarea>
                         <button type="submit" id="send">SEND</button>
             </form>
 
-            <section class="settings widget" id="settings">
+            <div class="settings widget" id="settings">
                 <!-- settings go here -->
-                <legend>Settings</legend>
+                <h3>Settings</h3>
                     <div>
                         <label for="email-checkbox" class="switch-label">Send Email Notifications</label>
                         <input type="checkbox" id="email-checkbox" class="checkbox">
-                        <label for="email-checkbox" class="switch"><p>OFF</p></label>
+                        <label for="email-checkbox" class="switch"><span>OFF</span></label>
                     </div>
                     <div>
                         <label for="privacy-checkbox" class="switch-label">Set Profile to Public</label>
                         <input type="checkbox" id="privacy-checkbox" class="checkbox">
-                        <label for="privacy-checkbox" class="switch"><p>OFF</p></label>
+                        <label for="privacy-checkbox" class="switch"><span>OFF</span></label>
                     </div>
-                    <select for="Timezone" id="timezone" placeholder="Select Timezone">
+                    <select id="timezone">
                         <option value="default" disabled selected>Select Timezone</option>
                         <option value="EST">Eastern Standard Time</option>
                         <option value="PST">Pacific Standard Time</option>
@@ -242,7 +242,7 @@
                         <button id="save">SAVE</button>
                         <button id="cancel">CANCEL</button>
                     </div>
-            </section>
+            </div>
         </main>
     </body>
 </html>

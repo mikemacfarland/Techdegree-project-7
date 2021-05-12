@@ -495,7 +495,7 @@ select {
     width: 28.5%;
   }
 
-  #settings legend {
+  #settings h3 {
     margin-bottom: auto;
   }
 }
