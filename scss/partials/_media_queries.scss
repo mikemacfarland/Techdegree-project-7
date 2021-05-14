@@ -38,6 +38,18 @@
         padding: 1rem 5%;
     }
 
+    .member-card,
+    .activity-card{
+        flex-direction: row;
+        & div{
+            width: 75%;
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: left;
+            }
+    }
+
     .social-tabs{
         flex-direction: row;
         justify-content: space-between;
@@ -56,6 +68,10 @@
 
 @media (min-width: 1024px) {
 
+    *{
+        font-size: 1.25rem;
+    }
+
     main{
         grid-template-columns: 50% 50%;
         grid-template-areas:"main-header main-header"
@@ -67,21 +83,15 @@
                              "message-user settings";
     }
 
+    .traffic-nav-link{
+        width: 12.5%;
+    }
+
     .recent-activity{
         border-left:1px grey solid;
     }
 
-    .member-card,
-    .activity-card{
-        flex-direction: row;
-        & div{
-            width: 75%;
-            display:flex;
-            justify-content: center;
-            flex-direction: column;
-            text-align: left;
-            }
-    }
+    
 
     
 

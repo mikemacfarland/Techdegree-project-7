@@ -27,6 +27,7 @@ canvas{
     flex-direction: row;
     justify-content: space-around;
     & li{
+        text-align: center;
         cursor: pointer;
         background-color: #78cf82;
         margin: .5rem;
@@ -71,6 +72,7 @@ canvas{
 }
 
 .social-svg{
+    margin: auto 0;
     height: 3rem;
     width: 3rem;
     fill: rgb(103, 86, 167);
@@ -105,7 +107,10 @@ canvas{
 // -------------------------------
 // MESSAGE USER FORM & WIDGET
 // -------------------------------
+
+
 #message-user{
+    position: relative;
     min-height: 7.25rem;
     padding-top: .825rem;
 }
@@ -178,9 +183,9 @@ select{
     text-align: right;
     color: white;
     cursor: pointer;
-    & p{
-        margin-top: .34rem ;
-        margin-right:.3rem;
+    & span{
+        display:block;
+        margin:.34rem .3rem 0 0;
     }
 }
 
@@ -209,7 +214,7 @@ select{
 #email-checkbox:checked + .switch,
 #privacy-checkbox:checked + .switch{
     background-color: rgb(103, 86, 167);
-    & p {
+    & span {
         text-align: left;
         margin-left:.3rem;
         transition: .4s;

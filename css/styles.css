@@ -230,6 +230,7 @@ canvas {
   justify-content: space-around;
 }
 .traffic-nav li {
+  text-align: center;
   cursor: pointer;
   background-color: #78cf82;
   margin: 0.5rem;
@@ -272,6 +273,7 @@ canvas {
 }
 
 .social-svg {
+  margin: auto 0;
   height: 3rem;
   width: 3rem;
   fill: #6756a7;
@@ -301,6 +303,7 @@ canvas {
 }
 
 #message-user {
+  position: relative;
   min-height: 7.25rem;
   padding-top: 0.825rem;
 }
@@ -360,9 +363,9 @@ select {
   color: white;
   cursor: pointer;
 }
-.switch p {
-  margin-top: 0.34rem;
-  margin-right: 0.3rem;
+.switch span {
+  display: block;
+  margin: 0.34rem 0.3rem 0 0;
 }
 
 #email-checkbox,
@@ -392,8 +395,8 @@ select {
 #privacy-checkbox:checked + .switch {
   background-color: #6756a7;
 }
-#email-checkbox:checked + .switch p,
-#privacy-checkbox:checked + .switch p {
+#email-checkbox:checked + .switch span,
+#privacy-checkbox:checked + .switch span {
   text-align: left;
   margin-left: 0.3rem;
   transition: 0.4s;
@@ -484,6 +487,19 @@ select {
     padding: 1rem 5%;
   }
 
+  .member-card,
+.activity-card {
+    flex-direction: row;
+  }
+  .member-card div,
+.activity-card div {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+  }
+
   .social-tabs {
     flex-direction: row;
     justify-content: space-between;
@@ -500,26 +516,21 @@ select {
   }
 }
 @media (min-width: 1024px) {
+  * {
+    font-size: 1.25rem;
+  }
+
   main {
     grid-template-columns: 50% 50%;
     grid-template-areas: "main-header main-header" "alert alert" "traffic traffic" "daily-traffic mobile-users" "social-stats social-stats" "new-members recent-activity" "message-user settings";
   }
 
-  .recent-activity {
-    border-left: 1px grey solid;
+  .traffic-nav-link {
+    width: 12.5%;
   }
 
-  .member-card,
-.activity-card {
-    flex-direction: row;
-  }
-  .member-card div,
-.activity-card div {
-    width: 75%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: left;
+  .recent-activity {
+    border-left: 1px grey solid;
   }
 
   #settings {
